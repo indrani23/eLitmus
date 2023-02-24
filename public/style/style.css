@@ -1,0 +1,15 @@
+#video{
+    border: 1px solid red;
+    display: block;
+    margin: 0 0 20px 0;
+    width: 365px;
+    height: 288px;
+}
+
+#canvas{
+    border: 2px solid red;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    /* width="640" height="480" */
+}

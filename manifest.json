@@ -1,0 +1,13 @@
+{
+  "name": "Online Protoctor",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "icons": {
+    "32": "icon16.png"
+  },
+  "action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "desktopCapture", "storage"]
+}

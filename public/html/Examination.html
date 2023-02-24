@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proctoring App</title>
+    <link rel="shortcut icon" href="/public/icons/icon32.png" type="image/x-icon">
+    <link rel="stylesheet" href="/public/style/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+   
+  </head>
+  <body>
+    <h1 class="text-center">You are being Monitored</h1>
+    <div class="container my-5 d-flex justify-content-between">
+      <div>
+        <video id="video" width="640" height="480" autoplay></video>
+        <a href="/public/html/Thanks.html" id="snap" class="btn btn-danger" >End Test</a>
+      </div>
+      <div>
+        <canvas id="canvas" width="640" height="480"></canvas>
+      </div>
+    </div>
+
+    <script >
+      window.addEventListener(
+        "DOMContentLoaded",
+        function () {
+          // Grab elements, create settings, etc.
+          var canvas = document.getElementById("canvas");
+          var context = canvas.getContext("2d");
+          var video = document.getElementById("video");
+          var mediaConfig = { video: true };
+          var errBack = function (e) {
+            console.log("An error has occurred!", e);
+          };
+      
+          // Put video listeners into place
+          if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices
+              .getUserMedia(mediaConfig)
+              .then(function (stream) {
+                //video.src = window.URL.createObjectURL(stream);
+                video.srcObject = stream;
+                video.play();
+              });
+          }
+      
+          //Take Image Function continuosly takes the photo of the candidate 
+          //after every 3 seconds
+          const takeImage =  () => {
+            context.drawImage(video, 0, 0, 640, 480);
+           canvas.toBlob(blob=>{
+             console.log(blob);
+           });
+          };
+          
+           setInterval(() => {
+            takeImage();
+           }, 3000);
+        },
+        false
+      );
+      </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "proctoring-app-main",
+  "version": "1.0.0",
+  "description": "Front end of this application is made using VanillaJs, Bootstrap To use it you can clone the repository to your local system. Go to index.html page. Open it using live server extension in vsCode",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^6.10.0",
+    "path": "^0.12.7",
+    "webcam-easy": "^1.0.5"
+  }
+}
