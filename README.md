@@ -15,4 +15,4 @@
 2. Unable to upload image data to the database
 
 * Front End Issues:
-1. Chrome extension Unable to record or request video from chrome api
+1. Chrome extension Unable to record or request video from chrome api but working as intended when opening through live server.
